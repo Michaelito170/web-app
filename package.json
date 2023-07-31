@@ -2,12 +2,12 @@
   "name": "catfinder",
   "version": "1.0.0",
   "description": "A simple website to find cats",
-  "main": "src/app.js",
+  "main": "app.js",
   "scripts": {
     "build": "webpack --mode production",
     "build:azure": "webpack --mode production",
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "ichael",
   "license": "ISC",
