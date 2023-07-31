@@ -4,8 +4,8 @@
   "description": "A simple website to find cats",
   "main": "src/app.js",
   "scripts": {
-    "build": "webpack --mode start",
-    "build:azure": "webpack --mode start --env.azure",
+    "build": "webpack --mode prodctiuon",
+    "build:azure": "webpack --mode production",
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
