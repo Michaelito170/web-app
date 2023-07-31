@@ -32,11 +32,11 @@ app.post('/submit-contact', (req, res) => {
 });
 
 // Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src/public')));
 
 // Route to serve the index.html file as the home page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'src/public', 'index.html'));
 });
 
 app.listen(port, () => {
@@ -44,10 +44,10 @@ app.listen(port, () => {
 });
 
 app.get('/about-us', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/about-us.html'));
+  res.sendFile(path.join(__dirname, 'src/public/about-us.html'));
 });
   
 app.get('/app-link', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'app-link.html'));
+  res.sendFile(path.join(__dirname, 'src/public', 'app-link.html'));
 });
 
