@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -21,7 +22,6 @@ app.post('/submit-contact', (req, res) => {
   const { name, email, message } = req.body;
 
   // You can add logic to store this information in a database or send an email
-
   console.log(`Received contact form submission:
     Name: ${name}
     Email: ${email}
@@ -31,6 +31,23 @@ app.post('/submit-contact', (req, res) => {
   res.json({ status: 'success', message: 'Thank you for contacting us!' });
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Route to serve the index.html file as the home page
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+
+app.get('/about-us', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/about-us.html'));
+});
+  
+app.get('/app-link', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'app-link.html'));
+});
+
