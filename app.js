@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'src/public')));
 
 // Route to serve the index.html file as the home page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'src/public', 'index.js'));
 });
 
 app.listen(port, () => {

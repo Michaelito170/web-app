@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <script src="index.js"></script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
     }
 
     main {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 40px auto;
       padding: 20px;
       background-color: #ffffff;
@@ -48,14 +48,33 @@
 <body>
   <main>
     <h1>CatFinder App</h1>
-    <p>Find the perfect cat for you!</p>
-    <img src="cat-image.jpg" alt="A beautiful cat" />
+    <p>FInd your lost Cat!</p>
+    <img src="https://media.giphy.com/media/IsDjNQPc4weWPEwhWm/giphy.gif" alt="A beautiful cat" />
     <nav>
       <a href="about-us.html">About Us</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html">Contact<span></span></a>
       <a href="app-link.html">Link to App</a>
     </nav>
+
+    <script type="text/javascript">
+      const buttons = document.querySelectorAll('a');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          let x = e.clientX - e.target.offsetLeft;
+          let y = e.clientY - e.target.offsetTop;
+          let ripples = document.createElement('span');
+          ripples.style.left = x + 'px';
+          ripples.style.top = y + 'px';
+          this.appendChild(ripples);
+
+          setTimeout(() => {
+            ripples.remove()
+          }, 1000);
+        });
+      });
+    </script>
   </main>
+
 </body>
 
 </html>
